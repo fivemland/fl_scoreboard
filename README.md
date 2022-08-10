@@ -16,3 +16,13 @@ FiveM Land Scoreboard
 
 - [ESX Legacy](https://github.com/esx-framework/esx-legacy 'ESX Legacy')
 - [oxmysql](https://github.com/overextended/oxmysql 'oxmysql')
+
+## Used Sources
+
+- [Svelte](https://svelte.dev/)
+- [tailwindcss](https://tailwindcss.com/) + [DaisyUI](https://daisyui.com/)
+- [Font Awesome](https://fontawesome.com/)
+
+## Idea Source
+
+[CFX Forum](https://forum.cfx.re/t/esx-jg-pro-scoreboard-sleek-scoreboard-now-available-for-esx/4888730)
