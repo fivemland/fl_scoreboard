@@ -23,19 +23,6 @@ ESX.RegisterServerCallback("getScorePlayers", function(source, cb)
       }
 
       table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
-      -- table.insert(players, playerData)
 
       if (tonumber(player) == tonumber(source)) then 
         myData = playerData
