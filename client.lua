@@ -1,12 +1,7 @@
 Board = {
-  loaded = false,
   visible = false,
 
   setVisible = function(self, state)
-    if not self.loaded then 
-      self:init()
-    end
-
     self.visible = state
 
     SendNUIMessage({
@@ -19,11 +14,11 @@ Board = {
     end
     DisplayRadar(not state)
 
-    if state then 
+    if state then
       self:update()
 
       CreateThread(function()
-        while self.visible do 
+        while self.visible do
           self:update()
           Wait(1000 * 5)
         end
@@ -31,16 +26,16 @@ Board = {
     end
   end,
 
-  init = function(self)
+  init = function(_, cb)
+    local sendFunc = cb or SendNUIMessage
+
     ESX.TriggerServerCallback("getScoreboardConfig", function(slots, Factions)
       CONFIG.slots = slots
 
-      SendNUIMessage({
+      sendFunc({
         CONFIG = CONFIG,
         Factions = Factions,
       })
-
-      self.loaded = true
     end)
   end,
 
@@ -55,16 +50,11 @@ Board = {
 }
 Board.__index = Board
 
-CreateThread(function()
-  if not ESX.IsPlayerLoaded() then 
-    return
-  end
-
-  Wait(1000)
-  Board:init()
+RegisterNUICallback("getConfig", function(_, cb)
+  Board:init(cb)
 end)
 
-AddEventHandler("esx:playerLoaded", function()
+RegisterNetEvent("esx:playerLoaded", function()
   Board:init()
 end)
 

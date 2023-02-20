@@ -1,8 +1,17 @@
 <script>
+  import { onMount } from 'svelte';
   import Header from './components/Header.svelte';
   import PlayerLine from './components/PlayerLine.svelte';
 
-  import { visible, players } from './stores';
+  import { visible, players, CONFIG, Factions } from './stores';
+
+  onMount(async () => {
+    const resp = await fetch(`https://${GetParentResourceName()}/getConfig`);
+    const { CONFIG: newConfig, Factions: newFactions } = await resp.json();
+
+    if (newConfig !== undefined) CONFIG.set(newConfig);
+    if (newFactions !== undefined) Factions.set(newFactions);
+  });
 </script>
 
 {#if $visible}
