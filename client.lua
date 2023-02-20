@@ -14,7 +14,9 @@ Board = {
     })
     SetNuiFocus(state, false)
 
-    ESX.UI.HUD.SetDisplay(state and 0 or 1)
+    if ESX?.UI?.HUD then
+      ESX.UI.HUD.SetDisplay(state and 0 or 1)
+    end
     DisplayRadar(not state)
 
     if state then 
