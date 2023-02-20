@@ -1,6 +1,8 @@
 ESX.RegisterServerCallback("getScoreboardConfig", function(_, cb)
-  for name, value in pairs(Factions) do 
-    value.label = exports.oxmysql:scalar_async("SELECT label FROM jobs WHERE name = ?", {name})
+  local Jobs <const> = ESX.GetJobs()
+
+  for name, value in pairs(Factions) do
+    value.label = Jobs[name]?.label or "Ismeretlen"
   end
 
   cb(GetConvarInt('sv_maxclients', 32), Factions)
