@@ -2,7 +2,7 @@ TOGGLE_KEY = "F10"
 
 CONFIG = {
   serverName = "Server Name",
-  icon = "https://www.fillmurray.com/g/50/50"
+  icon = "https://raw.githubusercontent.com/fivemland/fl_dashboard/master/ui/src/assets/logo.png"
 }
 
 Factions = {
