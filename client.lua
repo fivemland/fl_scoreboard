@@ -31,6 +31,7 @@ Board = {
 
     ESX.TriggerServerCallback("getScoreboardConfig", function(slots, Factions)
       CONFIG.slots = slots
+      CONFIG.toggleKey = TOGGLE_KEY
 
       sendFunc({
         CONFIG = CONFIG,
@@ -52,6 +53,11 @@ Board.__index = Board
 
 RegisterNUICallback("getConfig", function(_, cb)
   Board:init(cb)
+end)
+
+RegisterNUICallback("close", function(_, cb)
+  Board:setVisible(false)
+  cb('ok')
 end)
 
 RegisterNetEvent("esx:playerLoaded", function()

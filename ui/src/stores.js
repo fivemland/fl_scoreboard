@@ -5,6 +5,7 @@ export const visible = writable(false);
 export const CONFIG = writable({
   serverName: 'serverName',
   slots: 0,
+  toggleKey: 'F10',
 });
 
 export const Factions = writable({});

@@ -6,6 +6,10 @@
   import { visible, players, CONFIG, Factions } from './stores';
 
   onMount(async () => {
+    window.addEventListener('keydown', ({ key }) => {
+      if (key === 'Escape' || key === ($CONFIG?.toggleKey || 'F10')) fetch(`https://${GetParentResourceName()}/close`);
+    });
+
     const resp = await fetch(`https://${GetParentResourceName()}/getConfig`);
     const { CONFIG: newConfig, Factions: newFactions } = await resp.json();
 
